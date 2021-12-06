@@ -14,7 +14,7 @@ that could be analyzed and a specific experimental method for the next experimen
 1. Clone the source code.
 
 ```
-git clone https://github.com/lexas-f-utokyo/lexas-tmp.git
+git clone https://github.com/lexas-f-utokyo/lexas.git
 ```
 
 2. Download required data from [google drive repository](https://drive.google.com/file/d/15hQMmr4cCejZj5HR2q03ieu1Q6pjVwjI/view?usp=sharing) in the root directory and unzip the tar.gz files.
