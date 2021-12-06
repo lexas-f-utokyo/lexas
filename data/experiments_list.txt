@@ -1,0 +1,433 @@
+-/-	kokd
+3d sim	sumi
+3d-sim	sumi
+adenovirus	ovex
+alignment	info
+alignments	info
+ap-ms	mass
+assay	othr
+assays	othr
+atac seq	ngse
+atac-seq	ngse
+ataq seq	ngse
+biocomputational	info
+bioid	mass
+bioinformatic	info
+bioinformatical	info
+bioinformatics	info
+blast	info
+blastp	info
+blastx	info
+bleaching	othr
+block	kokd
+blocked	kokd
+blotting	bind
+chemiluminescence	othr
+chip	ngse
+chip seq	ngse
+chip-qpcr	ngse
+chip-seq	ngse
+chromatography	othr
+clem	elec
+clsm	sumi
+clustalw	info
+co immunoprecipitation	bind
+co immunostaining	micr
+co injected	othr
+co ip	bind
+co transfected	ovex
+co-depletion	kokd
+co-expressed	ovex
+co-immunoprecipitate	bind
+co-immunoprecipitation	bind
+co-immunostained	micr
+co-immunostaining	micr
+co-injected	othr
+co-ip	bind
+co-precipitate	bind
+co-precipitation	bind
+co-stained	micr
+co-transfected	ovex
+coexpressed	ovex
+coexpression	ovex
+coimmunoprecipitate	bind
+coimmunoprecipitated	bind
+coimmunoprecipitation	bind
+coimmunoprecipitations	bind
+coimmunostaining	micr
+coinhibition	kokd
+coip	bind
+compounds	othr
+confocal	sumi
+confocal microscopy	sumi
+coomassie	bind
+copurified	bind
+costained	micr
+cotransfected	ovex
+crispr	kokd
+crispr/cas9	kokd
+crispra	othr
+crispri	kokd
+crosslinking	othr
+cryo-em	stru
+crystal	stru
+crystalized	stru
+crystallisation	stru
+crystallization	stru
+crystallized	stru
+crystallographic	stru
+crystallography	stru
+crystals	stru
+database	info
+databases	info
+david	info
+depleted	kokd
+depletion	kokd
+depletions	kokd
+dic	micr
+dichoric	dich
+dichorism	dich
+dichroism	dich
+dichromism	dich
+dichroric	dich
+dichrosim	dich
+dicroism	dich
+digestion	othr
+doxycycline-inducible	ovex
+drug	othr
+dsrna	kokd
+dsrnas	kokd
+dstorm	sumi
+electron microscopy	elec
+electronmicroscopy	elec
+electrophoresis	ovex
+electroporation	ovex
+elisa	othr
+em	elec
+ensembl	info
+epifluorescence	micr
+ewas	gwas
+ewass	gwas
+exogeneous	ovex
+facs	othr
+fasta	info
+fdcd	dich
+filtration	othr
+fish	fish
+flim	sumi
+flow cytometry	othr
+frap	othr
+fret	othr
+genbank	info
+gencode	info
+genebank	info
+genotype	othr
+genotyped	othr
+gisaxs	xray
+gst-tagged	bind
+gwas	gwas
+gwass	gwas
+hairpin	kokd
+hapmap2	gwas
+high resolution	sumi
+high-resolution	sumi
+high-throughput	scre
+histochemistry	ihcc
+hmmer	info
+hybridisation	fish
+hybridization	fish
+ib	bind
+ihc	ihcc
+imaging	micr
+immmunofluorescence	micr
+immunfluorescence	micr
+immunhistochemistry	ihcc
+immuno electron	elec
+immuno em	elec
+immuno-electron	elec
+immuno-em	elec
+immuno-gold	elec
+immunoblot	bind
+immunoblots	bind
+immunoblotting	bind
+immunochemistry	ihcc
+immunocytochemical	ihcc
+immunocytochemistry	ihcc
+immunocytostaining	micr
+immunoelectron	elec
+immunoelectronic	elec
+immunoelectronmicroscopy	elec
+immunoflorescence	micr
+immunoflourescence	micr
+immunoflourescent	micr
+immunofluorecence	micr
+immunofluorecent	micr
+immunofluorence	micr
+immunofluorenscence	micr
+immunofluorescence	micr
+immunofluorescene	micr
+immunofluorescense	micr
+immunofluorescent	micr
+immunofluoresecence	micr
+immunofluoresence	micr
+immunofluoresent	micr
+immunoflurescence	micr
+immunogold	elec
+immunohistochemical	ihcc
+immunohistochemically	ihcc
+immunohistochemistry	ihcc
+immunohistochemisty	ihcc
+immunohistofluorescence	ihcc
+immunohistological	ihcc
+immunohistology	ihcc
+immunohistostaining	ihcc
+immunolabel	micr
+immunolabeled	micr
+immunolabeling	micr
+immunolabelling	micr
+immunolocalisation	micr
+immunolocalization	micr
+immunolocalizations	micr
+immunoprecipiation	bind
+immunoprecipitaion	bind
+immunoprecipitate	bind
+immunoprecipitates	bind
+immunoprecipitation	bind
+immunoprecipitations	bind
+immunopreciptation	bind
+immunostained	micr
+immunostaing	micr
+immunostaining	micr
+immunostainings	micr
+impair	kokd
+in situ	fish
+inactivation	kokd
+inducible	ovex
+infected	ovex
+infection	ovex
+informatic	info
+inhibited	kokd
+inhibition	kokd
+inhibitionof	kokd
+inhibitions	kokd
+inhibitor	kokd
+inhibitors	kokd
+injection	othr
+injections	othr
+interactome	bind
+interfering	kokd
+interpro	info
+ip	bind
+itc	othr
+itraq	mass
+knock-down	kokd
+knock-out	kokd
+knockdown	kokd
+knockdowns	kokd
+knockout	kokd
+knockouts	kokd
+lc-ms	mass
+lc-ms/ms	mass
+leniviral	ovex
+lentiviral	ovex
+lentivirus	ovex
+lentiviruses	ovex
+lipidomic	othr
+lipidomics	othr
+live cell	live
+live imaging	live
+live microscopy	live
+live-cell	live
+live-imaging	live
+maldi-tof	mass
+mass spectrometer	mass
+mass spectrometry	mass
+mass-spectrometry	mass
+microarray	ngse
+micrographs	micr
+microinjection	othr
+microphotographs	micr
+microscope	micr
+microscopic	micr
+microscopical	micr
+microscopies	micr
+microscopy	micr
+microtubule regrowth assay	othr
+morpholino	kokd
+morpholinos	kokd
+ms/ms	mass
+mtt	othr
+ncbi	info
+ngs	ngse
+nmr	stru
+northern blotting	othr
+omics	info
+oncomine	ngse
+over expression	ovex
+over-expressed	ovex
+over-expression	ovex
+overexpress	ovex
+overexpressed	ovex
+overexpression	ovex
+overexpressionof	ovex
+overexpressions	ovex
+overly expressed	ovex
+palm	sumi
+patient	kokd
+pfam	info
+pgwas	gwas
+phosphoproteomic	mass
+phosphoproteomics	mass
+photo activated localization microscopy	sumi
+photoactivation	othr
+photobleaching	othr
+phylogenetic	info
+phylogenies	info
+phylogentic	info
+polyacrylamide	bind
+precipitate	bind
+precipitates	bind
+probed	othr
+proteomic	mass
+proteomics	mass
+psi-blast	info
+psiblast	info
+pull down	bind
+pull-down	bind
+pulldown	bind
+pulled down	bind
+purified	bind
+q-pcr	rtpc
+qpcr	rtpc
+qrt pcr	rtpc
+qrt-pcr	rtpc
+real time pcr	rtpc
+real-time	rtpc
+real-time pcr	rtpc
+real-time-pcr	rtpc
+recombinant	bind
+recombinantly	bind
+recombinants	bind
+refseq	info
+rescue	resc
+rescued	resc
+rescues	resc
+rescuing	resc
+resistant	resc
+restore	resc
+restored	resc
+restores	resc
+retroviral	ovex
+retrovirus	ovex
+retroviruses	ovex
+rna fish	othr
+rna seq	ngse
+rna-fish	fish
+rna-seq	ngse
+rna-sequencing	ngse
+rnai	kokd
+rnai resistant	resc
+rnai-resistant	resc
+rnaseq	ngse
+rt pcr	rtpc
+rt qpcr	rtpc
+rt-pcr	rtpc
+rt-qpcr	rtpc
+rtqpcr	rtpc
+rt–pcr	rtpc
+saxs	xray
+screen	scre
+screening	scre
+screens	scre
+sds page	bind
+sds polyacrylamide	bind
+sds-page	bind
+sds-polyacrylamide	bind
+sec-mals	mass
+sedimentation	othr
+sem	elec
+semi-quantitative	rtpc
+sgrna	kokd
+sgrnas	kokd
+shrna	kokd
+shrna-resistant	resc
+shrnas	kokd
+silenced	kokd
+silico	info
+sim	sumi
+sim tirf	sumi
+sim-tirf	sumi
+sirna	kokd
+sirna resistant	resc
+sirna-resistant	resc
+sirna1	kokd
+sirna2	kokd
+sirna3	kokd
+sirnas	kokd
+size-exclusion	othr
+spindle assembly assay	othr
+spinning-disk	sumi
+stained	micr
+staining	micr
+stainings	micr
+starvation	othr
+sted	sumi
+stochastic optical reconstruction microscopy	sumi
+storm	sumi
+structured illumination microscopy	sumi
+stv pulldown	bind
+stv-pulldown	bind
+subdiffraction resolution	sumi
+subdiffraction-resolution	sumi
+super resolution	sumi
+super resolution microscopy	sumi
+super-resolution	sumi
+superresolution	sumi
+suppress	kokd
+supressed	kokd
+supresses	kokd
+tblastn	info
+tblastx	info
+tem	elec
+tet inducible	ovex
+tet-inducible	ovex
+tetracycline-inducible	ovex
+three dimensional	stru
+three-dimensional	stru
+time lapse	live
+time-lapse	live
+time‐lapse	live
+tirf	sumi
+tirfm	sumi
+tomographic	elec
+tomography	elec
+transcriptome	ngse
+transcriptomes	ngse
+transcriptomic	ngse
+transduced	ovex
+transfected	ovex
+transfection	ovex
+transgene	ovex
+trcd	dich
+tunel	othr
+two-hybrid	bind
+uniprot	info
+uniprotkb	info
+uvcd	dich
+videomicroscopy	live
+visualized	micr
+waxd	xray
+waxs	xray
+wb	bind
+western blotting	bind
+western-blot	bind
+wide field	micr
+wide-field	micr
+widefield	micr
+x ray	stru
+x-ray	stru
+y2h	bind
+yeast two hybrid	bind
+yeast two-hybrid	bind
+yeast-two-hybrid	bind
+−/−	kokd
