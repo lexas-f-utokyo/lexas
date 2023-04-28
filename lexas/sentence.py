@@ -3,19 +3,22 @@ import xml.etree.ElementTree as ET
 import scispacy
 import en_core_sci_sm
 import tqdm
+import re
+import os
+import concurrent.futures
 from ahocorapy.keywordtree import KeywordTree
 
 import lexas.gene_to_sym
 gene_to_sym = lexas.gene_to_sym.get()
 
+pattern = re.compile(r'\t|\n|\x0b|\x0c|\r|\x1c|\x1d|\x1e|\x1f|\x85|\xa0|\u1680|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200a|\u2028|\u2029|\u202f|\u205f|\u3000')
 def join_and_remove_nt(sec):
     sent = " ".join([r for r in sec.itertext()]).strip()
-    sent = sent.replace("\t"," ").replace("\n"," ").replace("\u2009","")
-    sent = sent.replace("\xa0","")
+    sent = pattern.sub(' ', sent)
     return sent
 
 def parse(file):
-    year,sent = 0,[]    
+    year,sent,para = 0,[],[]   
     try:
         tree = ET.parse(file)
         root = tree.getroot()
@@ -24,19 +27,30 @@ def parse(file):
             try:
                 sec_title = sec.find('title').text.lower()
                 if "result" in sec_title:
-                    for child in sec.findall(".//p"):
-                        for fig in child.findall('fig'):
-                            child.remove(fig)
+                    for n,child in enumerate(sec.findall(".//p")):
                         sent.append(join_and_remove_nt(child))
+                        para.append(n)
             except:
                 continue
     except:
         pass
-    return year, " ".join(sent)
+    return year,sent,para
 
 
+def result_extraction(article_dir="./articles/",output="./data/result_sections.txt"):
+    with open(output, "w") as f:            
+        for file in tqdm.tqdm(os.listdir(article_dir)):
+            pmcid = file.split(".")[0]
+            year,sent,para = lexas.sentence.parse(os.path.join(article_dir,file))
+            if year != 0:
+                for n in range(len(sent)):
+                    sentences = sent[n]
+                    paragraph = str(para[n])
+                    segmented_sentences = lexas.sentence.segmentation(sentences)
+                    f.write("\t".join([year, pmcid+"-"+paragraph, segmented_sentences]) + "\n")
+                
+en = en_core_sci_sm.load()        
 def segmentation(sent):
-    en = en_core_sci_sm.load()
     doc = en(sent)
     ret = "#####".join([str(a) for a in doc.sents if len(str(a).split(" ")) < 500])
     return ret
@@ -76,4 +90,22 @@ def mask(text, dicg, dice):
         exs = list(dice.search_all(t))
         ret += [[t[:e[1]] + " [EXPE] " +  t[e[1] + len(e[0]):], g, e[0].strip()] for e in exs]
     return ret
+
+dics = {}
+def mask_gene_experiment(input="./data/result_sections.txt",output="./data/masked_sentences.txt"):
+    if dics=={}:
+        print("Initializing dictionaries...")
+        dic_hgnc,dic_expe = lexas.sentence.initialize_dictionaries()
+        dics["hgnc"] = dic_hgnc
+        dics["expe"] = dic_expe
+        print("Done")
+    dic_hgnc,dic_expe = dics["hgnc"],dics["expe"]
+    with open(output, "w") as f:
+        with open(input, "r") as f2:    
+            for line in tqdm.tqdm(f2):
+                year,pmcid,sentences = line.strip("\n").split("\t")
+                for sentence in sentences.split("#####"):
+                    masked = lexas.sentence.mask(sentence,dic_hgnc,dic_expe)
+                    for m in masked:
+                        f.write("\t".join([year,pmcid] + m[1:3]+[sentence] + m[0:1])+"\n")
     

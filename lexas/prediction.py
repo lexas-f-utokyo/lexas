@@ -3,11 +3,8 @@ import tqdm
 import lexas.gene_to_sym
 gene_to_sym = lexas.gene_to_sym.get()
 
-symbols=[]
 with open("./data/symbols.txt","r") as f:
-        for line in f:
-            sym = line.strip()
-            symbols.append(sym)
+    symbols = [line.strip() for line in f]
 
 categorical,numerical,string = {},{},{}
 
