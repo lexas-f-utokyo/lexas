@@ -23,6 +23,21 @@ git clone https://github.com/lexas-f-utokyo/lexas.git
 tar -zxvf Repository.tar.gz
 ```
 
+Your final project directory structure should look like this:
+.
+├── lexas
+│   ├── 'Feature collection.ipynb'
+│   ├── Main.ipynb
+│   ├── __pycache__
+│   ├── data
+│   ├── README.md
+│   ├── articles
+│   ├── lexas
+│   └── model
+└── Repository
+    ├── Pretrained_model
+    ├── biobert
+    └── feature
 
 ## Dependencies
 - ahocorapy >= 1.6.1
