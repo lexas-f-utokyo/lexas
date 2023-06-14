@@ -1,5 +1,4 @@
 ahocorapy>=1.6.1
-en_core_sci_sm>=0.4.0
 numpy>=1.19.5
 pandas>=1.1.5
 scipy>=1.5.4

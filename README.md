@@ -22,13 +22,14 @@ git clone https://github.com/lexas-f-utokyo/lexas.git
 ```
 cd lexas
 pip install -r requirements.txt
+pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.4.0/en_core_sci_sm-0.4.0.tar.gz
+cd ..
 ```
 
 3. Download required data from [google drive repository](https://drive.google.com/file/d/1s8Na00l2GbxW112sfcb5q1g0jS-Ujp9h/view?usp=sharing) in the root directory and unzip the tar.gz files.
 
 ```
-python download.py
-cd ..
+python lexas/download.py
 tar -zxvf Repository.tar.gz
 ```
 
