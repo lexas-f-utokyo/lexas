@@ -24,9 +24,11 @@ cd lexas
 pip install -r requirements.txt
 ```
 
-3. Download required data from [google drive repository](https://drive.google.com/file/d/15hQMmr4cCejZj5HR2q03ieu1Q6pjVwjI/view?usp=sharing) in the root directory and unzip the tar.gz files.
+3. Download required data from [google drive repository](https://drive.google.com/file/d/1s8Na00l2GbxW112sfcb5q1g0jS-Ujp9h/view?usp=sharing) in the root directory and unzip the tar.gz files.
 
 ```
+python download.py
+cd ..
 tar -zxvf Repository.tar.gz
 ```
 
@@ -44,7 +46,6 @@ Your final project directory structure should look like this:
 │   ├── model
 │   └── requirements.txt
 └── Repository
-    ├── Pretrained_model
     ├── biobert
     └── feature
 ```
