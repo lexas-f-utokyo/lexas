@@ -24,6 +24,8 @@ tar -zxvf Repository.tar.gz
 ```
 
 Your final project directory structure should look like this:
+
+```
 .
 ├── lexas
 │   ├── 'Feature collection.ipynb'
@@ -38,6 +40,7 @@ Your final project directory structure should look like this:
     ├── Pretrained_model
     ├── biobert
     └── feature
+```
 
 ## Dependencies
 - ahocorapy >= 1.6.1
