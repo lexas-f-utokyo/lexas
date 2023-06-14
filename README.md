@@ -17,7 +17,14 @@ that could be analyzed and a specific experimental method for the next experimen
 git clone https://github.com/lexas-f-utokyo/lexas.git
 ```
 
-2. Download required data from [google drive repository](https://drive.google.com/file/d/15hQMmr4cCejZj5HR2q03ieu1Q6pjVwjI/view?usp=sharing) in the root directory and unzip the tar.gz files.
+2. Install dependencies
+
+```
+cd lexas
+pip install -r requirements.txt
+```
+
+3. Download required data from [google drive repository](https://drive.google.com/file/d/15hQMmr4cCejZj5HR2q03ieu1Q6pjVwjI/view?usp=sharing) in the root directory and unzip the tar.gz files.
 
 ```
 tar -zxvf Repository.tar.gz
@@ -28,19 +35,22 @@ Your final project directory structure should look like this:
 ```
 .
 ├── lexas
-│   ├── 'Feature collection.ipynb'
 │   ├── Main.ipynb
 │   ├── __pycache__
 │   ├── data
 │   ├── README.md
 │   ├── articles
 │   ├── lexas
-│   └── model
+│   ├── model
+│   └── requirements.txt
 └── Repository
     ├── Pretrained_model
     ├── biobert
     └── feature
 ```
+
+4. Run the Main.ipynb notebook
+
 
 ## Dependencies
 - ahocorapy >= 1.6.1
