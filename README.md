@@ -85,3 +85,8 @@ LEXAS relies on many information sources:
 - [ENCODE](https://www.encodeproject.org/)
 
 We gratefully acknowledge these resources.
+
+## Licensing
+
+The source code may be used for non-commercial purposes. If you want to use the source code for a commercial purpose, please contact the following email addresses.
+Miho Sakao : sakao [at_mark] todaitlo.jp
