@@ -245,7 +245,7 @@ def construct_csr_matrix(positive_tuples, negative_tuples, categorical_features,
     print("Done")
     return matrix, labels
 
-def generate_scores(query, models, categorical_features, feature_list, numerical_features, additional_features=[]):
+def generate_scores(query, model_name, model, categorical_features, feature_list, numerical_features, additional_features=[]):
     """
     Generate prediction scores for gene pairs using the given models.
 
@@ -271,13 +271,11 @@ def generate_scores(query, models, categorical_features, feature_list, numerical
     for i in range(0, len(experiment_tuples), batch_size):
         experiment_tuples_batched.append(experiment_tuples[i:i + batch_size])
 
-    scores = {"Symbol": symbols}
-    scores.update({model_name: [] for model_name in models})
+    scores = {"Symbol": symbols,model_name:[]}
 
     for batch in experiment_tuples_batched:
         col, row, data, C = generate_sparse_data(batch, 0, categorical_features, feature_list, numerical_features, additional_features=additional_features)
-        for model_name, model in models.items():
-            prediction_scores = model.predict_proba(csr_matrix((data, (row, col)), (len(batch), C)))[:, 1].tolist()
-            scores[model_name] += prediction_scores
+        prediction_scores = model.predict_proba(csr_matrix((data, (row, col)), (len(batch), C)))[:, 1].tolist()
+        scores[model_name] += prediction_scores
 
     return scores
