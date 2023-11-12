@@ -94,14 +94,17 @@ def tuple_to_dic(expe_tuple):
     """
     next_gene_dic = {s:set() for s in symbols}
     for first, second in expe_tuple:
-        next_gene_dic[first].add(second)
+        try:
+            next_gene_dic[first].add(second)
+        except KeyError:
+            continue
     return next_gene_dic
 
 
 import csv
-def save_dic(train_dic,dev_dic,test_dic,mode):
+def save_dic(train_dic,dev_dic,test_dic,mode,output_dir="./eval"):
     #Save dictionaries to a CSV file.
-    with open('./eval/dic_{}.csv'.format(mode), 'w', newline='') as file:
+    with open(os.path.join(output_dir, f'dic_{mode}.csv'), 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['key', 'train_value', 'dev_value', 'test_value'])
         for key in train_dic.keys():
@@ -110,10 +113,10 @@ def save_dic(train_dic,dev_dic,test_dic,mode):
             test_value = ','.join(map(str, test_dic[key]))
             writer.writerow([key, train_value, dev_value, test_value])
             
-def load_dic(mode):
+def load_dic(mode,input_dir="./eval"):
     #Load dictionaries to a CSV file.
     train_dic, dev_dic, test_dic = {}, {}, {}
-    with open('./eval/dic_{}.csv'.format(mode), 'r') as file:
+    with open(os.path.join(input_dir, f'dic_{mode}.csv'), 'r') as file:
         reader = csv.reader(file)
         next(reader)
         for row in reader:
@@ -153,11 +156,11 @@ def prepare_df_for_eval(df, query_gene, prev_dic, answer_dic):
         if gene.strip():
             df.at[gene,"answer"] = True
     
-    filtered_df = df.drop(index=["NA", query_gene])
+    filtered_df = df.drop(index=["NA", query_gene]).dropna()
     return filtered_df
 
 
-def auc_at_k(df, query_gene, prev_dic, answer_dic, top_k):
+def auc_at_k(df, query_gene, prev_dic, answer_dic, top_k, remove_all_prev = False):
     """
     Calculate AUC score for a given query gene based on the top k predictions.
     
@@ -177,22 +180,31 @@ def auc_at_k(df, query_gene, prev_dic, answer_dic, top_k):
     # Genes examined in previous data are not considered false, so they are removed from evaluation.
     df = df[(df["prev"]==False) | (df["answer"]==True)]
     
-    y_true = df["answer"].to_numpy()# True labels for AUC computation
+    if remove_all_prev:
+        df =  df[df["prev"]==False]
+    
+    y_true = df["answer"].to_numpy().astype(int)# True labels for AUC computation
 
     # Add a small random value to scores to prevent identical scores.
     np.random.seed(100)
     df.iloc[:,0] = df.iloc[:,0] + np.random.uniform(0, 1e-10, len(df))
     
     if sum(y_true):
-        threshold_score = -1*np.sort(-1*df.iloc[:,0])[top_k]
+        try:
+            threshold_score = -1*np.sort(-1*df.iloc[:,0])[top_k]
+        except IndexError: #String_raw or Funoup_raw
+            threshold_score = 0
         y_score = [0 if np.isnan(score) or score < threshold_score else score for score in df.iloc[:,0]]
-        auc_score = roc_auc_score(y_true,y_score)
+        try:
+            auc_score = roc_auc_score(y_true,y_score)
+        except ValueError: #FunCoup_raw
+            return None
     else:
         return None
         
     return auc_score
 
-def calculate_auc_for_many_genes(result_dir, model, prev_dic, answer_dic, top_k, genes=symbols):
+def calculate_auc_for_many_genes(result_dir, model, prev_dic, answer_dic, top_k, genes=symbols, remove_all_prev = False):
     """
     Calculate AUC scores for multiple query genes based on a model's predictions.
     
@@ -210,7 +222,7 @@ def calculate_auc_for_many_genes(result_dir, model, prev_dic, answer_dic, top_k,
     
     auc_results = []
     for query_gene in tqdm.tqdm(genes):
-        path = os.path.join(result_dir, model, f"{query_gene}.csv")
+        path = os.path.join(result_dir, f"{query_gene}.csv")
         
         if answer_dic[query_gene]==[""]:
             auc_results.append(None)
@@ -219,7 +231,8 @@ def calculate_auc_for_many_genes(result_dir, model, prev_dic, answer_dic, top_k,
         # Ensure that the file exists before trying to read it
         if os.path.exists(path):
             df = pd.read_csv(path, index_col=0)
-            auc_score = auc_at_k(df, query_gene, prev_dic, answer_dic, top_k)
+            df = df[~df.index.duplicated(keep='first')]
+            auc_score = auc_at_k(df, query_gene, prev_dic, answer_dic, top_k, remove_all_prev=remove_all_prev)
             auc_results.append(auc_score)
         else:
             print(f"Warning: File not found for gene {query_gene}. Skipping...")

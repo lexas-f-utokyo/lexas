@@ -177,7 +177,7 @@ def generate_experiment_tuples(csv_path, start_year, end_year, sampling=None, ne
     with open(csv_path, "r") as file:
         pmcids, sentence_ids, gene_symbols = [], [], []
 
-        for line in file:
+        for line in tqdm.tqdm(file):
             elements = line.strip("\n").split(",")
             if elements[0].isnumeric():
                 # Filter by year
