@@ -106,6 +106,8 @@ def extract_context_from_experiments(input_file, output_file, threshold=0.5):
 # This function builds a sparse matrix for the given experiment tuple, depending on the mode.
 def build_sparse_matrix(experiment_tuples, col, row, data, k, C, feature_num={}, feature_dict={}, mode="num"):
     for pre, nex in experiment_tuples:
+        if pre not in feature_dict or nex not in feature_dict:
+            continue
         init_length = len(col)
         if mode == "string":
             if (pre, nex) in feature_dict:

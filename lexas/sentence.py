@@ -50,7 +50,7 @@ def parse(xml_file, title_filter="result"):
     return year, sentences, paragraph_numbers
 
 # Function to extract results from articles, optionally by paragraph
-def extract_results(article_dir="./articles/", output_file="./data/result_sections.txt", title_filter="result", include_paragraph=False):
+def extract_results(article_dir="./articles/", output_file="./data/result_sections.txt", title_filter="result", include_paragraph=True):
     with open(output_file, "w") as output:
         # Iterate over all files in the specified directory
         for filename in tqdm.tqdm(os.listdir(article_dir)):
