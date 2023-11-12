@@ -57,9 +57,13 @@ def generate_tuples_all_following(path_to_csv, start, end):
     with open(path_to_csv, "r") as file:
         # Using csv.reader for better handling of CSV files
         reader = csv.reader(file)
+       
         
         for row in tqdm.tqdm(reader):
             year, pmcid, _, gene = int(row[0]), row[1], row[2], row[3]
+            
+            if "-" in pmcid:
+                pmcid = pmcid.split("-")[0]
 
             if not (start <= year <= end):
                 continue
@@ -156,7 +160,7 @@ def prepare_df_for_eval(df, query_gene, prev_dic, answer_dic):
         if gene.strip():
             df.at[gene,"answer"] = True
     
-    filtered_df = df.drop(index=["NA", query_gene]).dropna()
+    filtered_df = df.drop(index=[query_gene]).dropna()
     return filtered_df
 
 
