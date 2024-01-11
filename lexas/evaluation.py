@@ -160,7 +160,7 @@ def prepare_df_for_eval(df, query_gene, prev_dic, answer_dic):
         if gene.strip():
             df.at[gene,"answer"] = True
     
-    filtered_df = df.drop(index=[query_gene]).dropna()
+    filtered_df = df.drop(index=[query_gene]).fillna(0)
     return filtered_df
 
 
