@@ -3,7 +3,6 @@ numpy>=1.19.5
 pandas>=1.1.5
 scipy>=1.5.4
 scispacy>=0.4.0
-shap>=0.39.0
 torch>=1.9.1
 tqdm>=4.61.1
 transformers>=4.3.3
