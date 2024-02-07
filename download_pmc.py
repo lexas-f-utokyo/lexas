@@ -1,6 +1,9 @@
 from Bio import Entrez
 Entrez.email = 'example@example.com'#your email address
 
+import os
+os.makedir("articles",exist_ok=True)
+
 def download(pmc_id):
     article_xml = Entrez.efetch(db='pmc',id=pmc_id,rettype='xml').read()
     file_name = f'{pmc_id}.nxml' 
