@@ -32,7 +32,6 @@ cd ..
 
 ```
 python lexas/download.py
-python lexas/download_pmc.py
 tar -zxvf Repository.tar.gz
 ```
 
@@ -69,6 +68,7 @@ Your final project directory structure should look like this:
 - tqdm >= 4.61.1
 - transformers >=4.3.3
 - xgboost >=1.4.2
+- biopython >= 1.79
 
 
 ## Acknowledgment

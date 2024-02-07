@@ -8,4 +8,4 @@ tqdm>=4.61.1
 transformers>=4.3.3
 xgboost>=1.4.2
 gdown>=3.12.2
-
+biopython>=1.79

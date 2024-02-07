@@ -2,7 +2,6 @@
 __pyache__/
 articles
 data/experiments_for_xgboost.csv
-data/experiments_list.txt
 data/pairs.csv
 data/result_sections.txt
 data/masked_sentences.txt

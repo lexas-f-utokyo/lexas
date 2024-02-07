@@ -1,10 +1,8 @@
 from Bio import Entrez
-Entrez.email = 'A.N.Other@example.com'#your email address
+Entrez.email = 'example@example.com'#your email address
 
 def download(pmc_id):
-    article_xml = Entrez.efetch(db='pmc',
-                     id=pmc_id, 
-                     rettype='xml').read()
+    article_xml = Entrez.efetch(db='pmc',id=pmc_id,rettype='xml').read()
     file_name = f'{pmc_id}.nxml' 
     with open("articles/"+file_name, 'w') as file:
         file.write(article_xml.decode())
