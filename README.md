@@ -32,6 +32,7 @@ cd ..
 
 ```
 python lexas/download.py
+python lexas/download_pmc.py
 tar -zxvf Repository.tar.gz
 ```
 

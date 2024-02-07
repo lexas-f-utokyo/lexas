@@ -7,7 +7,7 @@ from sklearn.metrics import roc_auc_score
 from lexas import prediction
 symbols = prediction.symbols
 
-def generate_dic_for_eval(path_to_csv, start_year, end_year, mode):
+def generate_dic_for_eval(path_to_csv, start_year, end_year, mode="all_following"):
     """
     Extract gene combinations from a CSV file.
 
@@ -106,7 +106,7 @@ def tuple_to_dic(expe_tuple):
 
 
 import csv
-def save_dic(train_dic,dev_dic,test_dic,mode,output_dir="./eval"):
+def save_dic(train_dic,dev_dic,test_dic,mode="all_following",output_dir="./eval"):
     #Save dictionaries to a CSV file.
     with open(os.path.join(output_dir, f'dic_{mode}.csv'), 'w', newline='') as file:
         writer = csv.writer(file)
@@ -117,7 +117,7 @@ def save_dic(train_dic,dev_dic,test_dic,mode,output_dir="./eval"):
             test_value = ','.join(map(str, test_dic[key]))
             writer.writerow([key, train_value, dev_value, test_value])
             
-def load_dic(mode,input_dir="./eval"):
+def load_dic(mode="all_following",input_dir="./eval"):
     #Load dictionaries to a CSV file.
     train_dic, dev_dic, test_dic = {}, {}, {}
     with open(os.path.join(input_dir, f'dic_{mode}.csv'), 'r') as file:
